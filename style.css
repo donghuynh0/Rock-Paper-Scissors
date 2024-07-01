@@ -1,0 +1,23 @@
+body {
+    margin: 300px auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    font-family: sans-serif;
+    width: 750px;
+}
+
+.cart {
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    padding: 10px 15px;
+    margin-right: 20px;
+    box-shadow: inset 2px 1px 3px rgba(0,0,0,0.1);
+}
+h1 {
+    display: flex;
+    justify-content: center;
+}
