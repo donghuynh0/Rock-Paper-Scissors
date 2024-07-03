@@ -111,3 +111,65 @@ h1 {
     flex-direction: row;
     justify-content: space-around;
 }
+@media screen and (max-width: 768px) {
+    body {
+        margin: 100px auto;
+        width: 90%;
+        padding: 10px;
+    }
+
+    .playing-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cart {
+        width: 100%;
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    .history-container, .score-container {
+        width: 100%;
+    }
+
+    .his-lines, .user-scores, .computer-scores {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    body {
+        margin: 50px auto;
+        width: 95%;
+        padding: 5px;
+    }
+
+    .cart {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+
+    .history-container, .score-container {
+        width: 100%;
+    }
+
+    .his-lines, .user-scores, .computer-scores {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .intro, .cta {
+        font-size: 1em;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}
+
