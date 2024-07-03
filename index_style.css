@@ -34,9 +34,14 @@ main {
     background-color: #3498db;
     border-radius: 5px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 4px 3px #999 ;
 }
 
 .play-button a:hover {
     background-color: #2980b9;
+}
+
+.play-button a:active {
+    transform: translateY(4px); 
 }
