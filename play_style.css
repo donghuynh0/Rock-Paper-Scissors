@@ -120,11 +120,11 @@ h1 {
 
     .playing-buttons {
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
     }
 
     .cart {
-        width: 100%;
+        width: 50%;
         padding: 10px;
         font-size: 20px;
     }
@@ -135,7 +135,7 @@ h1 {
 
     .his-lines, .user-scores, .computer-scores {
         width: 100%;
-        font-size: 16px;
+        font-size: 6px;
     }
 
     h1 {
