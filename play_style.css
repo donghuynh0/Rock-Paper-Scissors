@@ -1,5 +1,6 @@
 body {
     margin: 300px auto;
+    margin-bottom: 0    ;
     padding: 20px 0px;
     height: 100%;
     display: flex;
@@ -7,6 +8,7 @@ body {
     justify-items: center;
     font-family: sans-serif;
     width: 950px;
+    border-radius: 10px;
     box-shadow: 2px 2px 30px rgba(52, 152, 219, 0.5);
 }
 
@@ -18,23 +20,36 @@ body {
 }
 
 .cart {
+    padding: 15px 25px;
     font-size: 24px;
     cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid lightgray;
-    padding: 10px 15px;
-    box-shadow: inset 2px 1px 3px rgba(0,0,0,0.1);
-    transition: background-color 0.15s ease-out,
-                box-shadow 0.15 ease-out, 
-                color 0.15s ease-out;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px 1px #999;
 }
 
-
+.cart:active .his-lines,
+.user-scores,
+.computer-scores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+    font-size: 18px;
+    color:gray;
+}
 .cart:hover {
-    background-color: rgb(24, 24, 24);
-    color: aliceblue;
-    box-shadow: 5px 5px 3px rgba(0,0,0,0.2);
-
+    background-color: #3e8e41;
+}
+.cart:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px); 
 }
 
 h1 {
@@ -81,6 +96,11 @@ h1 {
     font-size: 18px;
     color:gray;
 }
+
+.his-lines {
+    max-height: 100px;
+    overflow: auto;
+    }
 
 .history-container {
     width: 500px;
