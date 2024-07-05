@@ -31,6 +31,11 @@ Scores.load();
 // Play rock paper scissors
 function play (userMove) {
     const moves = ['Rock', 'Paper', 'Scissors'];
+    const icons = {
+        Rock: 'images/rock-emoji.png',
+        Paper: 'images/paper-emoji.png',
+        Scissors: 'images/scissors-emoji.png'
+    };
     numberRandom = Math.floor(Math.random() * 3); // take randomly a number from [0,1,2]
     cMove = moves[numberRandom]; 
 
@@ -46,18 +51,23 @@ function play (userMove) {
         result = 'Computer Wins';
         Scores.loses++;
     }
+    const cMoveIcon = `<img class="move-icon" src="${icons[cMove]}" alt="${cMove}">`;
+    const userMoveIcon = `<img class="move-icon" src="${icons[userMove]}" alt="${userMove}">`;
     if (result == 'User Wins'){
-        showHistories(`Computer: <span style="color: blue;">${cMove}</span> | 
-                        User: <span style="color: purple;">${userMove}</span> | 
-                        Result: <span style="color: green;">${result}</span>`);
+        const win = `<img class="result-icon" src="images/win.png" alt="${result}">`;
+        showHistories(`Computer: ${cMoveIcon} | 
+                        User: ${userMoveIcon} | 
+                        Result: <span style="color: green;">${result}</span> ${win}`);
     } else if (result == 'Computer Wins') {
-        showHistories(`Computer: <span style="color: blue;">${cMove}</span> | 
-                        User: <span style="color: purple;">${userMove}</span> | 
-                        Result: <span style="color: red;">${result}</span>`);
+        const lose = `<img class="result-icon" src="images/lose.png" alt="${result}">`;
+        showHistories(`Computer: ${cMoveIcon} | 
+                        User: ${userMoveIcon} | 
+                        Result: <span style="color: red;">${result}</span> ${lose}`);
     } else if (result == 'Tie') {
-        showHistories(`Computer: <span style="color: blue;">${cMove}</span> | 
-                        User: <span style="color: purple;">${userMove}</span> | 
-                        Result: <span style="color: brown;">${result}</span>`);    }
+        const tie = `<img class="result-icon" src="images/confused.png" alt="${result}" >`;
+        showHistories(`Computer: ${cMoveIcon} | 
+                        User: ${userMoveIcon} | 
+                        Result: <span style="color: brown;">${result}</span> ${tie}`);    }
     Scores.histories.push(`Computer: ${cMove} | User: ${userMove} | Result: ${result}`);
     showScore();
     Scores.save();
@@ -69,10 +79,6 @@ function reset() {
     location.reload();
 }
 
-function showScores() {
-    Scores.show('user');
-    Scores.show('computer');
-}
 
 function showHistories(history) {
     let hisLines = document.querySelector('.his-lines');
