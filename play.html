@@ -12,27 +12,45 @@
         <div class="playing-buttons">
             <!-- Rock button -->
             <button class="cart" onclick="play('Rock')">
-                <img src="rock-emoji.png" alt="rock">
+                <img src="images/rock-emoji.png" alt="rock">
             </button>
 
             <!-- Paper button -->
             <button class="cart" onclick="play('Paper')">
-                <img src="paper-emoji.png" alt="paper">
+                <img src="images/paper-emoji.png" alt="paper">
             </button>
 
             <!-- Scissors button -->
             <button class="cart" onclick="play('Scissors')">
-                <img src="scissors-emoji.png" alt="scissors">
+                <img src="images/scissors-emoji.png" alt="scissors">
             </button>
 
             <!-- Reset button -->
             <button class="cart" onclick=
                 "reset()
                  showHistories('reset')">
-                 <img src="refresh.png" alt="refresh">
+                 <img src="images/refresh.png" alt="refresh">
             </button>
-
+            <button class="cart" onclick="autoPlay()">
+                <img src="images/auto.png" alt="auto">
+            </button>
         </div>
+
+        <div class="result-section">
+            <div class="user-section">
+                <img class="user-avatar" src="images/boy.png" alt="user-avatar">
+                <div class="user-move-title">User Move</div>
+                <div class="user-move-icon"></div>
+            </div>
+            <div class="result"></div>
+            <div class="computer-section">
+                <img class="computer-avatar" src="images/hacker.png" alt="computer-avatar">
+                <div class="computer-move-title">Computer Move</div>
+                <div class="computer-move-icon"></div>
+            </div>
+        </div>
+
+       
 
         <div class="his">
             <div class="history-container">
