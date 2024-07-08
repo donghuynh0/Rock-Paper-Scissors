@@ -26,19 +26,36 @@ let Scores = {
 // load data from local storage
 Scores.load();
 
+const icons = {
+    Rock: 'images/rock-emoji.png',
+    Paper: 'images/paper-emoji.png',
+    Scissors: 'images/scissors-emoji.png'
+};
 
+function generateMove() {
+    const moves = ['Rock', 'Paper', 'Scissors'];
+    numberRandom = Math.floor(Math.random() * 3); // take randomly a number from [0,1,2]
+    return moves[numberRandom];
+}
+
+let isAutoPlaying = false;
+let intervalID;
+function autoPlay() {
+    if(!isAutoPlaying) {
+        intervalID = setInterval(function(){
+            const userMove = generateMove();
+            play(userMove);
+        }, 1000)
+        isAutoPlaying = true;
+    } else {
+        clearInterval(intervalID);
+        isAutoPlaying = false;
+    }
+}
 
 // Play rock paper scissors
 function play (userMove) {
-    const moves = ['Rock', 'Paper', 'Scissors'];
-    const icons = {
-        Rock: 'rock-emoji.png',
-        Paper: 'paper-emoji.png',
-        Scissors: 'scissors-emoji.png'
-    };
-    numberRandom = Math.floor(Math.random() * 3); // take randomly a number from [0,1,2]
-    cMove = moves[numberRandom]; 
-
+    cMove =  generateMove();
     if (userMove === cMove) {
         result = 'Tie';
         Scores.ties++;
@@ -53,18 +70,19 @@ function play (userMove) {
     }
     const cMoveIcon = `<img class="move-icon" src="${icons[cMove]}" alt="${cMove}">`;
     const userMoveIcon = `<img class="move-icon" src="${icons[userMove]}" alt="${userMove}">`;
+    showResult(userMove, cMove, result);
     if (result == 'User Wins'){
-        const win = `<img class="result-icon" src="win.png" alt="${result}">`;
+        const win = `<img class="result-icon" src="images/win.png" alt="${result}">`;
         showHistories(`Computer: ${cMoveIcon} | 
                         User: ${userMoveIcon} | 
                         Result: <span style="color: green;">${result}</span> ${win}`);
     } else if (result == 'Computer Wins') {
-        const lose = `<img class="result-icon" src="lose.png" alt="${result}">`;
+        const lose = `<img class="result-icon" src="images/lose.png" alt="${result}">`;
         showHistories(`Computer: ${cMoveIcon} | 
                         User: ${userMoveIcon} | 
                         Result: <span style="color: red;">${result}</span> ${lose}`);
     } else if (result == 'Tie') {
-        const tie = `<img class="result-icon" src="confused.png" alt="${result}" >`;
+        const tie = `<img class="result-icon" src="images/confused.png" alt="${result}" >`;
         showHistories(`Computer: ${cMoveIcon} | 
                         User: ${userMoveIcon} | 
                         Result: <span style="color: brown;">${result}</span> ${tie}`);    }
@@ -79,6 +97,23 @@ function reset() {
     location.reload();
 }
 
+
+function showResult(userMove, cMove, rs) {
+    const userElement= document.querySelector('.user-move-icon');
+    const computerElement = document.querySelector('.computer-move-icon');
+    const result = document.querySelector('.result');
+    const cMoveIcon = `<img class="result-move-icon" src="${icons[cMove]}" alt="${cMove}">`;
+    const userMoveIcon = `<img class="result-move-icon" src="${icons[userMove]}" alt="${userMove}">`;
+    if (rs == 'User Wins'){
+        result.innerHTML = `<span style="color: green;">${rs}</span>`
+    } else if (rs == 'Computer Wins') {
+        result.innerHTML = `<span style="color: red;">${rs}</span>`
+    } else if (rs == 'Tie') {
+        result.innerHTML = `<span style="color: brown;">${rs}</span>`
+    }
+    userElement.innerHTML = userMoveIcon;
+    computerElement.innerHTML = cMoveIcon;
+}
 
 function showHistories(history) {
     let hisLines = document.querySelector('.his-lines');
