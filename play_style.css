@@ -1,5 +1,5 @@
 body {
-    margin: 300px auto;
+    margin: 100px auto;
     margin-bottom: 0    ;
     padding: 20px 0px;
     height: 100%;
@@ -29,11 +29,65 @@ body {
     font-size: 24px;
     cursor: pointer;
     color: #fff;
-    background-color: #04AA6D;
+    background-color: #82E0AA;
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px 1px #999;
 }
+
+
+.result-section {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.result {
+    position: absolute;
+    font-size: 30px;
+    font-weight: 600;
+    top: 100px;
+}
+
+
+.user-section, .computer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user-section{
+    margin-left: 30px;
+}
+
+.computer-section {
+    margin-left: 60px;
+}
+
+.user-avatar , .computer-avatar {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.result-move-icon {
+    height: 100px;
+    width: 100px;
+}
+
+.computer-move-title, .user-move-title {
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-size: 28px;
+    color: #5DADE2;
+}
+.computer-move-title{
+    color: #839192;
+}
+
+
+
 
 .cart:active .his-lines,
 .user-scores,
@@ -103,7 +157,7 @@ h1 {
 }
 
 .his-lines {
-    max-height: 100px;
+    max-height: 150px;
     overflow: auto;
     }
 
