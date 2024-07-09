@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="styles/index_style.css">
+</head>
+<body>
+    <main>
+        <!--title-->
+        <h1>Rock Paper Scissors</h1> 
 
+
+        <!-- BUTTONS -->
+        <div class="playing-buttons">
+            <!-- Rock button -->
+            <button class="cart js-rock-button">
+                <img src="images/rock-emoji.png" alt="rock">
+            </button>
+            <!-- Paper button -->
+            <button class="cart js-paper-button">
+                <img src="images/paper-emoji.png" alt="paper">
+            </button>
+            <!-- Scissors button -->
+            <button class="cart js-scissors-button">
+                <img src="images/scissors-emoji.png" alt="scissors">
+            </button>
+            <!-- Reset button -->
+            <button class="cart js-reset-button">
+                 <img src="images/refresh.png" alt="refresh">
+            </button>
+            <!-- auto playing button -->
+            <button class="cart js-auto-button">
+                <img src="images/auto.png" alt="auto">
+            </button>
+        </div>
+
+
+        <!-- RESULT -->
+        <div class="result-section">
+            <!-- user move section left-->
+            <div class="user-section">
+                <img class="user-avatar" src="images/boy.png" alt="user-avatar">
+                <div class="user-move-title">User Move</div>
+                <div class="user-move-icon"></div>
+            </div>
+            <!-- text result in middle-->
+            <div class="result"></div> 
+            <!-- computer move section right -->
+            <div class="computer-section">
+                <img class="computer-avatar" src="images/hacker.png" alt="computer-avatar">
+                <div class="computer-move-title">Computer Move</div>
+                <div class="computer-move-icon"></div>
+            </div>
+        </div>
+
+    
+        <!-- HISTORIES AND SCORES -->
+        <div class="his">
+            <!-- histories section left -->
+            <div class="history-container">
+                <h2 class="his-title">
+                    Histories
+                </h2>
+                <div class="his-lines"></div>
+            </div>
+            <!-- scores section right -->
+            <div class="score-container">
+                <!-- User score -->
+                <div class="User">
+                    <h2>Score of User</h2>
+                    <div class="user-scores"></div>
+                </div>
+                <!-- Computer score -->
+                <div class="Computer">
+                    <h2>Score of Computer</h2>
+                    <div class="computer-scores"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts/app.js"></script>
+
+</body>
+</html>
