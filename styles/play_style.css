@@ -1,87 +1,182 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock-Paper-Scissors</title>
-    <link rel="stylesheet" href="styles/index_style.css">
-</head>
-<body>
-    <main>
-        <!--title-->
-        <h1>Rock Paper Scissors</h1> 
+body {
+    margin: 100px auto;
+    margin-bottom: 0    ;
+    padding: 20px 0px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    font-family: sans-serif;
+    width: 950px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 30px rgba(52, 152, 219, 0.5);
+}
+
+/* BUTTONS */
+.playing-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.playing-buttons img {
+    height: 50px;
+}
+
+.cart {
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #82E0AA;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px 1px #999;
+}
+
+.cart:active .his-lines,
+.user-scores,
+.computer-scores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+    font-size: 18px;
+    color:gray;
+}
+.cart:hover {
+    background-color: #3e8e41;
+}
+.cart:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px); 
+}
+
+/* RESULT SECTION */
+.result-section {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.computer-move-title, .user-move-title {
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-size: 28px;
+    color: #5DADE2;
+}
+
+.computer-move-title{
+    color: #839192;
+}
+
+.result {
+    position: absolute;
+    font-size: 30px;
+    font-weight: 600;
+    top: 100px;
+}
+
+.user-section, .computer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user-section{
+    margin-left: 30px;
+}
+
+.computer-section {
+    margin-left: 60px;
+}
+
+.user-avatar , .computer-avatar {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.result-move-icon {
+    height: 100px;
+    width: 100px;
+}
 
 
-        <!-- BUTTONS -->
-        <div class="playing-buttons">
-            <!-- Rock button -->
-            <button class="cart js-rock-button">
-                <img src="images/rock-emoji.png" alt="rock">
-            </button>
-            <!-- Paper button -->
-            <button class="cart js-paper-button">
-                <img src="images/paper-emoji.png" alt="paper">
-            </button>
-            <!-- Scissors button -->
-            <button class="cart js-scissors-button">
-                <img src="images/scissors-emoji.png" alt="scissors">
-            </button>
-            <!-- Reset button -->
-            <button class="cart js-reset-button">
-                 <img src="images/refresh.png" alt="refresh">
-            </button>
-            <!-- auto playing button -->
-            <button class="cart js-auto-button">
-                <img src="images/auto.png" alt="auto">
-            </button>
-        </div>
+
+/* HISTORIES AND SCORES */
+h1 {
+    margin: 0;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.his {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.history-container {
+    width: 500px;
+}
+
+.score-container {
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.score-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.his-title {
+    display: flex;
+    justify-content: center;
+}
 
 
-        <!-- RESULT -->
-        <div class="result-section">
-            <!-- user move section left-->
-            <div class="user-section">
-                <img class="user-avatar" src="images/boy.png" alt="user-avatar">
-                <div class="user-move-title">User Move</div>
-                <div class="user-move-icon"></div>
-            </div>
-            <!-- text result in middle-->
-            <div class="result"></div> 
-            <!-- computer move section right -->
-            <div class="computer-section">
-                <img class="computer-avatar" src="images/hacker.png" alt="computer-avatar">
-                <div class="computer-move-title">Computer Move</div>
-                <div class="computer-move-icon"></div>
-            </div>
-        </div>
+.his-lines,
+.user-scores,
+.computer-scores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+    font-size: 18px;
+    color:gray;
+}
 
-    
-        <!-- HISTORIES AND SCORES -->
-        <div class="his">
-            <!-- histories section left -->
-            <div class="history-container">
-                <h2 class="his-title">
-                    Histories
-                </h2>
-                <div class="his-lines"></div>
-            </div>
-            <!-- scores section right -->
-            <div class="score-container">
-                <!-- User score -->
-                <div class="User">
-                    <h2>Score of User</h2>
-                    <div class="user-scores"></div>
-                </div>
-                <!-- Computer score -->
-                <div class="Computer">
-                    <h2>Score of Computer</h2>
-                    <div class="computer-scores"></div>
-                </div>
-            </div>
-        </div>
-    </main>
+.his-lines {
+    max-height: 150px;
+    overflow: auto;
+    }
 
-    <script src="scripts/app.js"></script>
+.move-icon {
+    width: 30px; 
+    height: 30px;
+}
 
-</body>
-</html>
+.result-icon {
+    width: 30px;
+    height: 30px;
+    display:inline-block;
+    margin-left:10px;
+    align-items:center;
+}
