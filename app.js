@@ -27,9 +27,9 @@ let Scores = {
 Scores.load();
 
 const icons = {
-    Rock: 'images/rock-emoji.png',
-    Paper: 'images/paper-emoji.png',
-    Scissors: 'images/scissors-emoji.png'
+    Rock: 'rock-emoji.png',
+    Paper: 'paper-emoji.png',
+    Scissors: 'scissors-emoji.png'
 };
 
 function generateMove() {
@@ -72,17 +72,17 @@ function play (userMove) {
     const userMoveIcon = `<img class="move-icon" src="${icons[userMove]}" alt="${userMove}">`;
     showResult(userMove, cMove, result);
     if (result == 'User Wins'){
-        const win = `<img class="result-icon" src="images/win.png" alt="${result}">`;
+        const win = `<img class="result-icon" src="win.png" alt="${result}">`;
         showHistories(`Computer: ${cMoveIcon} | 
                         User: ${userMoveIcon} | 
                         Result: <span style="color: green;">${result}</span> ${win}`);
     } else if (result == 'Computer Wins') {
-        const lose = `<img class="result-icon" src="images/lose.png" alt="${result}">`;
+        const lose = `<img class="result-icon" src="lose.png" alt="${result}">`;
         showHistories(`Computer: ${cMoveIcon} | 
                         User: ${userMoveIcon} | 
                         Result: <span style="color: red;">${result}</span> ${lose}`);
     } else if (result == 'Tie') {
-        const tie = `<img class="result-icon" src="images/confused.png" alt="${result}" >`;
+        const tie = `<img class="result-icon" src="confused.png" alt="${result}" >`;
         showHistories(`Computer: ${cMoveIcon} | 
                         User: ${userMoveIcon} | 
                         Result: <span style="color: brown;">${result}</span> ${tie}`);    }
